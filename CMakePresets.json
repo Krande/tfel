@@ -1,0 +1,52 @@
+{
+  "version": 6,
+  "include": [
+    ".env.json"
+  ],
+  "configurePresets": [
+    {
+      "name": "shared",
+      "hidden": true,
+      "inherits": [
+        "env-vars"
+      ],
+      "environment": {
+        "PREFIX": "$env{MEDC_PREFIX}"
+      },
+      "warnings": {
+        "dev": false
+      },
+      "cacheVariables": {
+        "CMAKE_VERBOSE_MAKEFILE": "ON"
+      }
+    },
+    {
+      "name": "Win debug",
+      "generator": "Ninja",
+      "inherits": [
+        "shared"
+      ],
+      "hidden": false,
+      "environment": {
+        "LIBRARY_PREFIX": "$env{PREFIX}/Library"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "enable-fortran": "OFF",
+        "enable-python-bindings": "ON",
+        "enable-cyrano": "ON",
+        "enable-aster": "ON",
+        "disable-reference-doc": "ON",
+        "disable-website": "ON",
+        "enable-portable-build": "ON",
+        "Python_ADDITIONAL_VERSIONS": "$env{CONDA_PY}",
+        "enable-python": "ON",
+        "PYTHON_EXECUTABLE": "FILEPATH=$env{PYTHON}",
+        "PYTHON_LIBRARY": "FILEPATH=$env{LIBRARY_PREFIX}/lib",
+        "PYTHON_INCLUDE_DIRS": "PATH=$env{LIBRARY_PREFIX}/include",
+        "CMAKE_INSTALL_PREFIX": "$env{LIBRARY_PREFIX}",
+        "USE_EXTERNAL_COMPILER_FLAGS": "ON"
+      }
+    }
+  ]
+}
