@@ -48,9 +48,8 @@
         "LIBRARY_PREFIX": "$env{PREFIX}/Library"
       },
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "clang",
-        "CMAKE_CXX_COMPILER": "clang",
-        "CMAKE_EXE_LINKER_FLAGS": "-fuse-ld=lld-link"
+        "CMAKE_C_COMPILER": "clang-cl",
+        "CMAKE_CXX_COMPILER": "clang-cl"
       }
     },
     {
