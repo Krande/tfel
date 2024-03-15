@@ -1,0 +1,54 @@
+{
+  "version": 6,
+  "include": [
+    ".env.json"
+  ],
+  "configurePresets": [
+    {
+      "name": "shared",
+      "hidden": true,
+      "inherits": [
+        "env-vars"
+      ],
+      "environment": {
+        "PREFIX": "$env{MFRONT_PREFIX}"
+      },
+      "warnings": {
+        "dev": false
+      },
+      "cacheVariables": {
+        "CMAKE_VERBOSE_MAKEFILE": "ON"
+      }
+    },
+    {
+      "name": "Win debug",
+      "generator": "Ninja",
+      "inherits": [
+        "shared"
+      ],
+      "hidden": false,
+      "environment": {
+        "LIBRARY_PREFIX": "$env{PREFIX}/Library"
+      },
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "enable-fortran": "OFF",
+        "enable-python": "ON",
+        "enable-python-bindings": "ON",
+        "enable-cyrano": "ON",
+        "local-castem-header": "OFF",
+        "enable-aster": "ON",
+        "enable-testing": "OFF",
+        "enable-portable-build": "ON",
+        "BUILD_SHARED_LIBS": "ON",
+        "Python_ADDITIONAL_VERSIONS": "$env{CONDA_PY}",
+        "PYTHON_INCLUDE_DIRS": "$env{LIBRARY_PREFIX}/include",
+        "PYTHON_LIBRARY": "$env{PREFIX}/libs/python312.lib",
+        "USE_EXTERNAL_COMPILER_FLAGS": "ON",
+        "CMAKE_FIND_ROOT_PATH": "$env{PREFIX};$env{LIBRARY_PREFIX}",
+        "CMAKE_PROGRAM_PATH": "$env{LIBRARY_PREFIX}/bin;$env{PREFIX}/Scripts",
+        "CMAKE_PREFIX_PATH": "$env{PREFIX};$env{LIBRARY_PREFIX};$env{LIBRARY_PREFIX}/include;$env{LIBRARY_PREFIX}/lib;$env{LIBRARY_PREFIX}/bin"
+      }
+    }
+  ]
+}
