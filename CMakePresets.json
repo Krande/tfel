@@ -17,20 +17,7 @@
         "dev": false
       },
       "cacheVariables": {
-        "CMAKE_VERBOSE_MAKEFILE": "ON"
-      }
-    },
-    {
-      "name": "Win debug",
-      "generator": "Ninja",
-      "inherits": [
-        "shared"
-      ],
-      "hidden": false,
-      "environment": {
-        "LIBRARY_PREFIX": "$env{PREFIX}/Library"
-      },
-      "cacheVariables": {
+        "CMAKE_VERBOSE_MAKEFILE": "ON",
         "CMAKE_BUILD_TYPE": "Release",
         "enable-fortran": "OFF",
         "enable-python": "ON",
@@ -48,6 +35,34 @@
         "CMAKE_FIND_ROOT_PATH": "$env{PREFIX};$env{LIBRARY_PREFIX}",
         "CMAKE_PROGRAM_PATH": "$env{LIBRARY_PREFIX}/bin;$env{PREFIX}/Scripts",
         "CMAKE_PREFIX_PATH": "$env{PREFIX};$env{LIBRARY_PREFIX};$env{LIBRARY_PREFIX}/include;$env{LIBRARY_PREFIX}/lib;$env{LIBRARY_PREFIX}/bin"
+      }
+    },
+    {
+      "name": "Win debug (CLANG)",
+      "generator": "Ninja",
+      "inherits": [
+        "shared"
+      ],
+      "hidden": false,
+      "environment": {
+        "LIBRARY_PREFIX": "$env{PREFIX}/Library"
+      },
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang-cl",
+        "CMAKE_CXX_COMPILER": "clang-cl"
+      }
+    },
+    {
+      "name": "Win debug (MSVC)",
+      "generator": "Ninja",
+      "inherits": [
+        "shared"
+      ],
+      "hidden": false,
+      "environment": {
+        "LIBRARY_PREFIX": "$env{PREFIX}/Library"
+      },
+      "cacheVariables": {
       }
     }
   ]
