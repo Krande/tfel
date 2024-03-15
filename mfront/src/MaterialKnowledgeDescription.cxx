@@ -15,6 +15,8 @@
 #include "TFEL/Raise.hxx"
 #include "MFront/MaterialKnowledgeDescription.hxx"
 
+#include <iterator>
+
 namespace mfront {
 
   const char* const MaterialKnowledgeDescription::defaultOutOfBoundsPolicy =
