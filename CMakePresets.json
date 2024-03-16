@@ -34,7 +34,9 @@
         "USE_EXTERNAL_COMPILER_FLAGS": "ON",
         "CMAKE_FIND_ROOT_PATH": "$env{PREFIX};$env{LIBRARY_PREFIX}",
         "CMAKE_PROGRAM_PATH": "$env{LIBRARY_PREFIX}/bin;$env{PREFIX}/Scripts",
-        "CMAKE_PREFIX_PATH": "$env{PREFIX};$env{LIBRARY_PREFIX};$env{LIBRARY_PREFIX}/include;$env{LIBRARY_PREFIX}/lib;$env{LIBRARY_PREFIX}/bin"
+        "CMAKE_PREFIX_PATH": "$env{PREFIX};$env{LIBRARY_PREFIX};$env{LIBRARY_PREFIX}/include;$env{LIBRARY_PREFIX}/lib;$env{LIBRARY_PREFIX}/bin",
+        "CMAKE_INSTALL_PREFIX": "$env{LIBRARY_PREFIX}",
+        "SITE_PACKAGES_DIR": "$env{PREFIX}/Lib/site-packages"
       }
     },
     {

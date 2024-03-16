@@ -445,7 +445,7 @@ function(python_lib_module name package)
   if(TFEL_APPEND_SUFFIX)
     if(WIN32)
       install(TARGETS py_${package}_${name}
-        DESTINATION bin/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages/${package}_${TFEL_SUFFIX_FOR_PYTHON_MODULES}
+        DESTINATION ${SITE_PACKAGES_DIR}/${package}_${TFEL_SUFFIX_FOR_PYTHON_MODULES}
         COMPONENT python_bindings)
     else(WIN32)
       install(TARGETS py_${package}_${name}
@@ -455,7 +455,7 @@ function(python_lib_module name package)
   else(TFEL_APPEND_SUFFIX)
     if(WIN32)
       install(TARGETS py_${package}_${name}
-        DESTINATION bin/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages/${package}
+        DESTINATION ${SITE_PACKAGES_DIR}/${package}
         COMPONENT python_bindings)
     else(WIN32)
       install(TARGETS py_${package}_${name}        DESTINATION lib${LIB_SUFFIX}/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages/${package}
@@ -520,7 +520,7 @@ function(tfel_python_script_base dir)
     endif(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${pyscript}.in")
     if(WIN32)
       install(PROGRAMS ${python_script}
-        DESTINATION bin/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages/${dir}/
+        DESTINATION ${SITE_PACKAGES_DIR}/${dir}/
         COMPONENT python_bindings)
     else(WIN32)
       install(PROGRAMS ${python_script}

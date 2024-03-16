@@ -30,6 +30,13 @@ endif(EXISTS "${CMAKE_BINARY_DIR}/conanbuildinfo.cmake")
 set(CMAKE_CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED ON)
 
+if(SITE_PACKAGES_DIR)
+  message(STATUS "site-packages directory : ${SITE_PACKAGES_DIR}")
+else ()
+  set(SITE_PACKAGES_DIR "bin/python${PYTHON_VERSION_MAJOR}.${PYTHON_VERSION_MINOR}/site-packages")
+  message(STATUS "site-packages directory : ${SITE_PACKAGES_DIR}")
+endif(SITE_PACKAGES_DIR)
+
 # tfel specific macros
 include(cmake/modules/tfel.cmake)
 # some variables for compatibility with autotools
