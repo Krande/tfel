@@ -173,6 +173,10 @@ namespace tfel::utilities {
     TFEL_INLINE type_check<T1, void> set(T1 &&src) {
       this->operator=(std::forward<T1>(src));
     }
+    template <typename T1>
+    TFEL_INLINE void set(const T1 &src) {
+      this->operator=(src);
+    }
     //
     template <typename T1>
     TFEL_INLINE type_check<T1, bool> is() const {
@@ -195,7 +199,7 @@ namespace tfel::utilities {
 
    protected:
     //! \brief clear the GenType
-    TFEL_INLINE void clear() { this->operator=(std::monostate()); }
+    //TFEL_INLINE void clear() { this->operator=(std::monostate()); }
     //! \brief set the value of the GenType.
     template <typename T1>
     TFEL_INLINE type_check<T1, void> set_uninitialised() {
