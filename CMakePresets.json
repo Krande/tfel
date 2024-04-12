@@ -47,13 +47,14 @@
       ],
       "hidden": false,
       "environment": {
-        "LIBRARY_PREFIX": "$env{PREFIX}/Library"
+        "LIBRARY_PREFIX": "$env{PREFIX}/Library",
+        "LDFLAGS": ""
       },
       "cacheVariables": {
         "CMAKE_C_COMPILER": "clang-cl",
         "CMAKE_CXX_COMPILER": "clang-cl",
         "CMAKE_Fortran_COMPILER": "flang-new",
-        "CMAKE_Fortran_FLAGS": "-flang-experimental-hlfir"
+        "CMAKE_Fortran_FLAGS": ""
       }
     },
     {
