@@ -48,13 +48,15 @@
       "hidden": false,
       "environment": {
         "LIBRARY_PREFIX": "$env{PREFIX}/Library",
-        "LDFLAGS": ""
+        "LIB": "$penv{LIB};$env{LIBRARY_PREFIX}/lib",
+        "CPATH": "$penv{CPATH};$env{LIBRARY_PREFIX}/include"
       },
       "cacheVariables": {
         "CMAKE_C_COMPILER": "clang-cl",
         "CMAKE_CXX_COMPILER": "clang-cl",
         "CMAKE_Fortran_COMPILER": "flang-new",
-        "CMAKE_Fortran_FLAGS": ""
+        "CMAKE_LINKER": "lld-link",
+        "CMAKE_NM":"llvm-nm"
       }
     },
     {
